@@ -88,7 +88,7 @@ services:
       # the configuration files below must be updated to include trusted_proxies
       #
       # Comment out the following line when using HTTPS with either Let's Encrypt or custom certificates
-      - '../caddy/builtins/http.Caddyfile:/etc/caddy/Caddyfile'
+      # - '../caddy/builtins/http.Caddyfile:/etc/caddy/Caddyfile'
       #
       # Uncomment the following line when using HTTPS with Let's Encrypt's staging environment
       # - '../caddy/builtins/https.lets-encrypt-staging.Caddyfile:/etc/caddy/Caddyfile'
@@ -105,6 +105,9 @@ services:
       #
       # Uncomment / update the following line when using HTTPS with custom certificates
       # - '/LOCAL/KEY/PATH.key:/sourcegraph.key'
+      #
+      # Uncomment / update the following line when using openGrok rewrite rules
+      - '../caddy/builtins/http.openGrok-rewrite.Caddyfile:/etc/caddy/Caddyfile'
     ports:
       - '0.0.0.0:80:80'
       - '0.0.0.0:443:443'

@@ -1,0 +1,38 @@
+# Routes all plain http requests to sourcegraph-frontend - suitable for local testing.
+#
+# Caddyfile documentation: https://caddyserver.com/docs/caddyfile
+
+:80
+
+log
+
+@directory path_regexp dirpath ^/source/xref/([^/]+)/(.+)$
+
+redir @directory github.com/sourcegraph/{re.dirpath.1}/-/blob/{re.dirpath.2}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Directory
+# http://192.168.64.6:8080/source/xref/sourcegraph/client/web/src/enterprise/code-monitoring/testing/
+# http://192.168.64.6/github.com/sourcegraph/sourcegraph/-/blob/client/web/src/enterprise/code-monitoring/testing/
+
+# File
+# http://192.168.64.6:8080/source/xref/sourcegraph/client/web/src/enterprise/code-monitoring/testing/util.ts?r=b23a28ce
+# http://192.168.64.6/github.com/sourcegraph/sourcegraph@04cf0cb07327c01141fad5eb9707600c7eb806c2/-/blob/client/web/src/enterprise/code-monitoring/testing/util.ts
+
+# Query: Symbol Search
+# http://192.168.64.6:8080/source/search?full=&defs=OverwriteSettings&refs=&path=&hist=&type=&xrd=&nn=2&si=full&searchall=true&si=full
+# http://192.168.64.6/search?q=context:global+repo:%5Egithub%5C.com/sourcegraph/sourcegraph%24+type:symbol+OverwriteSettings&patternType=lucky
+
+# query expression matcher - https://caddyserver.com/docs/caddyfile/matchers#query
