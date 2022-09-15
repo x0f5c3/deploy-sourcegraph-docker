@@ -81,6 +81,9 @@ services:
       #
       # Uncomment & update the following line when using HTTPS with Let's Encrypt
       # - 'SRC_ACME_EMAIL=admin@example.com'
+      #
+      # Uncomment & update the following line when using HTTPS with Let's Encrypt
+      - 'OPENGROK_REWRITE_CODEHOST=github.com'
     volumes:
       - 'caddy:/caddy-storage'
       #

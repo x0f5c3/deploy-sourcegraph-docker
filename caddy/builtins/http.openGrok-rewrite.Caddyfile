@@ -6,9 +6,10 @@
 
 log
 
+# http://192.168.64.6:8080/source/xref/sourcegraph/client/web/src/enterprise/code-monitoring/testing/
 @directory path_regexp dirpath ^/source/xref/([^/]+)/(.+)$
-
-redir @directory github.com/sourcegraph/{re.dirpath.1}/-/blob/{re.dirpath.2}
+# http://192.168.64.6/github.com/sourcegraph/sourcegraph/-/blob/client/web/src/enterprise/code-monitoring/testing/
+redir @directory {$OPENGROK_REWRITE_CODEHOST}/sourcegraph/{re.dirpath.1}/-/blob/{re.dirpath.2}
 
 
 
